@@ -31,18 +31,22 @@ class IndividualWidgetsPage extends StatelessWidget {
         return GridView.count(
           padding: const EdgeInsets.all(16),
           crossAxisCount: constraints.maxWidth ~/ 300,
-          children: const [
-            Card(
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Center(
-                  child: _SwitchSection(),
-                ),
-              ),
-            ),
+          children: [
+            _buildSection(context, child: const _SwitchSection()),
           ],
         );
       }),
+    );
+  }
+
+  Widget _buildSection(BuildContext context, {required Widget child}) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Center(
+          child: child,
+        ),
+      ),
     );
   }
 }
