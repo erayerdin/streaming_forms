@@ -37,33 +37,31 @@ class HomePage extends StatelessWidget {
         title: const Text('Examples'),
         elevation: 4,
       ),
-      body: Center(
-        child: ListView(
-          children: [
-            //-------------//
-            // FormsSwitch //
-            //-------------//
-            FormsSwitch(
-              controller: _switchController,
-              // initialValue: false,
-            ),
-            StreamBuilder(
-              builder: (context, snapshot) {
-                switch (snapshot.connectionState) {
-                  case ConnectionState.none:
-                    return const Text('There is no stream yet.');
-                  case ConnectionState.waiting:
-                    return const Text('Waiting for stream connection...');
-                  case ConnectionState.active:
-                    return Text('Switch data: ${snapshot.data}');
-                  case ConnectionState.done:
-                    return const Text('Stream is completed.');
-                }
-              },
-              stream: _switchController.stream,
-            ),
-          ],
-        ),
+      body: ListView(
+        children: [
+          //-------------//
+          // FormsSwitch //
+          //-------------//
+          FormsSwitch(
+            controller: _switchController,
+            // initialValue: false,
+          ),
+          StreamBuilder(
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  return const Text('There is no stream yet.');
+                case ConnectionState.waiting:
+                  return const Text('Waiting for stream connection...');
+                case ConnectionState.active:
+                  return Text('Switch data: ${snapshot.data}');
+                case ConnectionState.done:
+                  return const Text('Stream is completed.');
+              }
+            },
+            stream: _switchController.stream,
+          ),
+        ],
       ),
     );
   }
