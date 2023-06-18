@@ -16,7 +16,7 @@ jobs:
 
       - name: "Getting dependencies"
         run: flutter pub get
-      - name: "Generating code"
-        run: flutter pub run build_runner build
+      # - name: "Generating code"
+      #   run: flutter pub run build_runner build
       - name: "Analyzing code"
         run: flutter analyze
