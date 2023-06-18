@@ -182,6 +182,7 @@ class _FormsTextFieldState extends State<FormsTextField> {
   void initState() {
     value = widget.initialValue;
     _controller = TextEditingController(text: value);
+    widget.controller.add(value);
     super.initState();
   }
 
