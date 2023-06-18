@@ -23,8 +23,14 @@ import 'package:flutter/material.dart';
 class FormsSwitch extends StatefulWidget {
   /// {@macro formsswitch}
   const FormsSwitch({
+    //-------------------//
+    // Forms Constructor //
+    //-------------------//
     required this.controller,
     this.initialValue = false,
+    //---------------------//
+    // Flutter Constructor //
+    //---------------------//
     this.activeColor,
     this.activeTrackColor,
     this.inactiveThumbColor,
