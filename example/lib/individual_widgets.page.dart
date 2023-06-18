@@ -32,7 +32,8 @@ class IndividualWidgetsPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           crossAxisCount: constraints.maxWidth ~/ 300,
           children: [
-            _buildSection(context, child: const _SwitchSection()),
+            _buildSection(context, child: _SwitchSection()),
+            _buildSection(context, child: _TextFieldSection()),
           ],
         );
       }),
@@ -56,7 +57,9 @@ class IndividualWidgetsPage extends StatelessWidget {
 //-------------//
 
 class _SwitchSection extends StatefulWidget {
-  const _SwitchSection();
+  _SwitchSection();
+
+  final StreamController<bool> _controller = StreamController();
 
   @override
   State<_SwitchSection> createState() => _SwitchSectionState();
@@ -98,6 +101,67 @@ class _SwitchSectionState extends State<_SwitchSection> {
                   return const Text('Waiting for stream connection...');
                 case ConnectionState.active:
                   return Text('Switch data: ${snapshot.data}');
+                case ConnectionState.done:
+                  return const Text('Stream is completed.');
+              }
+            },
+            stream: _controller.stream,
+          ),
+        )
+      ],
+    );
+  }
+}
+
+//------------------//
+// Forms Text Field //
+//------------------//
+
+class _TextFieldSection extends StatefulWidget {
+  _TextFieldSection();
+
+  final StreamController<String> _controller = StreamController();
+
+  @override
+  State<_TextFieldSection> createState() => _TextFieldSectionState();
+}
+
+class _TextFieldSectionState extends State<_TextFieldSection> {
+  final StreamController<String> _controller = StreamController();
+
+  @override
+  void dispose() {
+    _controller.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Text(
+            'Switch',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        FormsTextField(
+          controller: _controller,
+          // initialValue: 'foo',
+        ),
+        Center(
+          child: StreamBuilder(
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  return const Text('There is no stream yet.');
+                case ConnectionState.waiting:
+                  return const Text('Waiting for stream connection...');
+                case ConnectionState.active:
+                  return Text('Text field data: ${snapshot.data}');
                 case ConnectionState.done:
                   return const Text('Stream is completed.');
               }
