@@ -1,3 +1,3 @@
 # Example App
 
-You can directly head to [main](lib/main.dart) to see the example source code.
+To see how you can initialize individual form widgets with their own streams, head to [individual widgets page](lib/individual_widgets.page.dart).
