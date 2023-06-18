@@ -98,6 +98,7 @@ class _FormsSwitchState extends State<FormsSwitch> {
   @override
   void initState() {
     value = widget.initialValue;
+    widget.controller.add(value);
     super.initState();
   }
 
