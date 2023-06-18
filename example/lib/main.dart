@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:forms/forms.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,15 +20,15 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
-  final Stream<bool> _switchStream = const Stream.empty();
+  final StreamController<bool> _switchController = StreamController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +44,7 @@ class HomePage extends StatelessWidget {
             // FormsSwitch //
             //-------------//
             FormsSwitch(
-              stream: _switchStream,
+              controller: _switchController,
               // initialValue: false,
             ),
             StreamBuilder(
@@ -57,7 +60,7 @@ class HomePage extends StatelessWidget {
                     return const Text('Stream is completed.');
                 }
               },
-              stream: _switchStream,
+              stream: _switchController.stream,
             ),
           ],
         ),
