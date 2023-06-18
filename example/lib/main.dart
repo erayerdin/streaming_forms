@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  final Stream<bool> _switchStream = const Stream.empty();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +34,33 @@ class HomePage extends StatelessWidget {
         title: const Text('Examples'),
         elevation: 4,
       ),
-      body: const Center(
-        child: Text('Example app'),
+      body: Center(
+        child: ListView(
+          children: [
+            //-------------//
+            // FormsSwitch //
+            //-------------//
+            FormsSwitch(
+              stream: _switchStream,
+              // initialValue: false,
+            ),
+            StreamBuilder(
+              builder: (context, snapshot) {
+                switch (snapshot.connectionState) {
+                  case ConnectionState.none:
+                    return const Text('There is no stream yet.');
+                  case ConnectionState.waiting:
+                    return const Text('Waiting for stream connection...');
+                  case ConnectionState.active:
+                    return Text('Switch data: ${snapshot.data}');
+                  case ConnectionState.done:
+                    return const Text('Stream is completed.');
+                }
+              },
+              stream: _switchStream,
+            ),
+          ],
+        ),
       ),
     );
   }
