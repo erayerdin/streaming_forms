@@ -38,6 +38,7 @@ class HomePage extends StatelessWidget {
         elevation: 4,
       ),
       body: ListView(
+        padding: const EdgeInsets.all(16),
         children: [
           //-------------//
           // FormsSwitch //
