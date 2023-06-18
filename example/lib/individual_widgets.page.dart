@@ -18,9 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:forms/forms.dart';
 
 class IndividualWidgetsPage extends StatelessWidget {
-  IndividualWidgetsPage({super.key});
-
-  final StreamController<bool> _switchController = StreamController();
+  const IndividualWidgetsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,17 +27,65 @@ class IndividualWidgetsPage extends StatelessWidget {
         title: const Text('Examples'),
         elevation: 4,
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          //-------------//
-          // FormsSwitch //
-          //-------------//
-          FormsSwitch(
-            controller: _switchController,
-            // initialValue: false,
+      body: LayoutBuilder(builder: (context, constraints) {
+        return GridView.count(
+          padding: const EdgeInsets.all(16),
+          crossAxisCount: constraints.maxWidth ~/ 300,
+          children: const [
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Center(
+                  child: _SwitchSection(),
+                ),
+              ),
+            ),
+          ],
+        );
+      }),
+    );
+  }
+}
+
+//-------------//
+// FormsSwitch //
+//-------------//
+
+class _SwitchSection extends StatefulWidget {
+  const _SwitchSection();
+
+  @override
+  State<_SwitchSection> createState() => _SwitchSectionState();
+}
+
+class _SwitchSectionState extends State<_SwitchSection> {
+  final StreamController<bool> _controller = StreamController();
+
+  @override
+  void dispose() {
+    _controller.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Text(
+            'Switch',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
           ),
-          StreamBuilder(
+        ),
+        FormsSwitch(
+          controller: _controller,
+          // initialValue: false,
+        ),
+        Center(
+          child: StreamBuilder(
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -52,10 +98,10 @@ class IndividualWidgetsPage extends StatelessWidget {
                   return const Text('Stream is completed.');
               }
             },
-            stream: _switchController.stream,
+            stream: _controller.stream,
           ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }
