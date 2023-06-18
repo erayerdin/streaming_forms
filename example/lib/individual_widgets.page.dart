@@ -82,7 +82,7 @@ class _SwitchSectionState extends State<_SwitchSection> {
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Text(
-            'Switch',
+            'FormsSwitch',
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
@@ -143,7 +143,7 @@ class _TextFieldSectionState extends State<_TextFieldSection> {
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Text(
-            'Switch',
+            'FormsTextField',
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
