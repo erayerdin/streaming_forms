@@ -17,3 +17,4 @@ library forms;
 
 export 'src/forms.dart';
 export 'src/switch.dart';
+export 'src/text_field.dart';
