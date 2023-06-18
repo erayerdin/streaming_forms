@@ -1,8 +1,6 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploying Demo
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
 
@@ -22,22 +20,25 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: "Checking out"
         uses: actions/checkout@v3
-      - name: Setup Pages
+      - name: "Setting up Flutter SDK"
+        uses: subosito/flutter-action@v2
+      - name: "Setting up Pages"
         uses: actions/configure-pages@v3
-      - name: Upload artifact
+      - name: "Building for web"
+        working-directory: ./example
+        run: flutter build web --release
+      - name: "Uploading artifact"
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
+          path: './example/build/web/'
+      - name: "Deploying to GitHub Pages"
         id: deployment
         uses: actions/deploy-pages@v2
