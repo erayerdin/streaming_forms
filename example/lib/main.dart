@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:streaming_forms_example/home.page.dart';
-import 'package:streaming_forms_example/individual_widgets.page.dart';
-import 'package:streaming_forms_example/lights.page.dart';
+import 'package:streaming_forms_example/presentation/home.page.dart';
+import 'package:streaming_forms_example/presentation/individual_widgets.page.dart';
+import 'package:streaming_forms_example/presentation/lights.page.dart';
 
 void main() {
   runApp(const MyApp());
