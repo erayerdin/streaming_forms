@@ -213,6 +213,7 @@ class _StreamingTextFieldState extends State<StreamingTextField> {
       textAlignVertical: widget.textAlignVertical,
       textDirection: widget.textDirection,
       readOnly: widget.readOnly,
+      // ignore: deprecated_member_use_from_same_package, deprecated_member_use
       toolbarOptions: widget.toolbarOptions,
       showCursor: widget.showCursor,
       autofocus: widget.autofocus,
