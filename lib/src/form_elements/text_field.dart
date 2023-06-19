@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 import 'dart:ui';
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
@@ -47,7 +49,8 @@ class StreamingTextField extends StatefulWidget {
     this.textDirection,
     this.readOnly = false,
     @Deprecated(
-      'Use `contextMenuBuilder` instead. This feature was deprecated after v3.3.0-0.5.pre.',
+      'Use `contextMenuBuilder` instead. '
+      'This feature was deprecated after v3.3.0-0.5.pre.',
     )
     this.toolbarOptions,
     this.showCursor,
@@ -102,7 +105,10 @@ class StreamingTextField extends StatefulWidget {
   //------------------//
   // Streaming Properties //
   //------------------//
+  /// StreamController to push the change events to.
   final StreamController<String> controller;
+
+  /// Initial value of the widget.
   final String initialValue;
 
   //--------------------//
