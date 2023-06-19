@@ -15,6 +15,6 @@
 ///
 library streaming_forms;
 
+export 'src/form_elements/switch.dart';
+export 'src/form_elements/text_field.dart';
 export 'src/streaming_forms.dart';
-export 'src/switch.dart';
-export 'src/text_field.dart';
