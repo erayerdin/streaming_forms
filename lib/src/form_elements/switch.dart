@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:flutter/gestures.dart';
@@ -59,7 +61,10 @@ class StreamingSwitch extends StatefulWidget {
   //------------------//
   // Streaming Properties //
   //------------------//
+  /// StreamController to push the change events to.
   final StreamController<bool> controller;
+
+  /// Initial value of the widget.
   final bool initialValue;
 
   //--------------------//
