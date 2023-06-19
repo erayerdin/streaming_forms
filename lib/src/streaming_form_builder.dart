@@ -38,6 +38,9 @@ class _StreamingFormBuilderState extends State<StreamingFormBuilder> {
   final _FieldFactory fieldFactory = _FieldFactory();
 
   final Map<String, dynamic> previousValue = {};
+  // this analysis is ignored because we will only use StreamSubscription
+  // for a proper dispose
+  // ignore: strict_raw_type
   final List<StreamSubscription> subs = [];
 
   @override
@@ -81,6 +84,9 @@ typedef _StreamingFormBuilderFn = Widget Function(
 class _FieldFactory {
   _FieldFactory();
 
+  // this analysis is ignored because `getFieldController` already passes
+  // generic type
+  // ignore: strict_raw_type
   final Map<String, StreamController> fieldControllers = {};
 
   StreamController<T> getFieldController<T>(String key) {
