@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:streaming_forms/streaming_forms.dart';
 
@@ -26,36 +28,39 @@ class FormPage extends StatelessWidget {
         elevation: 4,
       ),
       body: StreamingFormBuilder(
-        builder: (context, controller, controllerFactory) {
+        builder: (context, controller, fieldFactory) {
           return ListView(
             padding: const EdgeInsets.all(16),
-            children: const [
+            children: [
               StreamBuilder(
                 builder: (context, snapshot) {
                   final data = snapshot.data ?? {};
-                  final json = json.encode(data);
+                  final raw = json.encode(data);
 
-                  return Text(json);
+                  return Center(
+                    child: Text(raw),
+                  );
                 },
                 stream: controller.stream,
               ),
               StreamingTextField(
-                controller: controllerFactory.build('name'),
-                decoration: InputDecoration(labelText: 'Name'),
+                controller: fieldFactory.getFieldController('name'),
+                decoration: const InputDecoration(labelText: 'Name'),
               ),
               StreamingTextField(
-                controller: controllerFactory.build('surname'),
-                decoration: InputDecoration(labelText: 'Surname'),
+                controller: fieldFactory.getFieldController('surname'),
+                decoration: const InputDecoration(labelText: 'Surname'),
               ),
               StreamingTextField(
-                controller: controllerFactory.build('age'),
-                decoration: InputDecoration(labelText: 'Age'),
+                controller: fieldFactory.getFieldController('age'),
+                decoration: const InputDecoration(labelText: 'Age'),
               ),
+              const SizedBox(height: 8),
               Row(
                 children: [
                   StreamingSwitch(
-                      controller: controllerFactory.build('accept')),
-                  Text('Accept the terms and conditions'),
+                      controller: fieldFactory.getFieldController('accept')),
+                  const Text('Accept the terms and conditions'),
                 ],
               ),
             ],
