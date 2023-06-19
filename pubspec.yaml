@@ -1,6 +1,6 @@
 name: streaming_forms
 description: A form package providing Dart streams.
-version: 0.1.0-alpha.1
+version: 0.2.0-alpha.1
 homepage: https://github.com/erayerdin/streaming_forms
 repository: https://github.com/erayerdin/streaming_forms
 issue_tracker: https://github.com/erayerdin/forms/issues
