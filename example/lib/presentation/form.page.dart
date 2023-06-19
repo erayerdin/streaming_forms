@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
+import 'package:streaming_forms/streaming_forms.dart';
 
 class FormPage extends StatelessWidget {
   const FormPage({super.key});
@@ -24,8 +25,42 @@ class FormPage extends StatelessWidget {
         title: const Text('Form Page'),
         elevation: 4,
       ),
-      body: const Center(
-        child: Text('form page'),
+      body: StreamingFormBuilder(
+        builder: (context, controller, controllerFactory) {
+          return ListView(
+            padding: const EdgeInsets.all(16),
+            children: const [
+              StreamBuilder(
+                builder: (context, snapshot) {
+                  final data = snapshot.data ?? {};
+                  final json = json.encode(data);
+
+                  return Text(json);
+                },
+                stream: controller.stream,
+              ),
+              StreamingTextField(
+                controller: controllerFactory.build('name'),
+                decoration: InputDecoration(labelText: 'Name'),
+              ),
+              StreamingTextField(
+                controller: controllerFactory.build('surname'),
+                decoration: InputDecoration(labelText: 'Surname'),
+              ),
+              StreamingTextField(
+                controller: controllerFactory.build('age'),
+                decoration: InputDecoration(labelText: 'Age'),
+              ),
+              Row(
+                children: [
+                  StreamingSwitch(
+                      controller: controllerFactory.build('accept')),
+                  Text('Accept the terms and conditions'),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
