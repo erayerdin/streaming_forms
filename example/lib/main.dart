@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:streaming_forms_example/home.page.dart';
 import 'package:streaming_forms_example/individual_widgets.page.dart';
+import 'package:streaming_forms_example/lights.page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/individual': (context) => const IndividualWidgetsPage(),
+        '/lights': (context) => const LightsPage(),
       },
       initialRoute: '/',
     );

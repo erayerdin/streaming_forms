@@ -36,6 +36,12 @@ class HomePage extends StatelessWidget {
                 },
                 child: const Text('Individual Widgets Page'),
               ),
+              ElevatedButton(
+                onPressed: () async {
+                  await Navigator.of(context).pushNamed('/lights');
+                },
+                child: const Text('Lights Page'),
+              ),
             ],
           ),
         ),
