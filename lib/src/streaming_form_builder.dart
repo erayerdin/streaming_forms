@@ -21,9 +21,12 @@ import 'package:flutter/material.dart';
 /// {@endtemplate}
 class StreamingFormBuilder extends StatefulWidget {
   /// {@macro streamingformbuilder}
-  const StreamingFormBuilder({required this.builder, super.key});
+  const StreamingFormBuilder({
+    required StreamingFormBuilderFn builder,
+    super.key,
+  }) : _builder = builder;
 
-  final StreamingFormBuilderFn builder;
+  final StreamingFormBuilderFn _builder;
 
   @override
   State<StreamingFormBuilder> createState() => _StreamingFormBuilderState();
@@ -64,7 +67,7 @@ class _StreamingFormBuilderState extends State<StreamingFormBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder(context, controller, fieldFactory);
+    return widget._builder(context, controller, fieldFactory);
   }
 }
 
