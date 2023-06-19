@@ -23,11 +23,11 @@ import 'package:flutter/services.dart';
 /// {@template formstextfield}
 /// A text field with streams.
 /// {@endtemplate}
-class FormsTextField extends StatefulWidget {
+class StreamingTextField extends StatefulWidget {
   /// {@macro formstextfield}
-  const FormsTextField({
+  const StreamingTextField({
     //-------------------//
-    // Forms Constructor //
+    // Streaming Constructor //
     //-------------------//
     required this.controller,
     this.initialValue = '',
@@ -100,7 +100,7 @@ class FormsTextField extends StatefulWidget {
   });
 
   //------------------//
-  // Forms Properties //
+  // Streaming Properties //
   //------------------//
   final StreamController<String> controller;
   final String initialValue;
@@ -171,10 +171,10 @@ class FormsTextField extends StatefulWidget {
   final TextMagnifierConfiguration? magnifierConfiguration;
 
   @override
-  State<FormsTextField> createState() => _FormsTextFieldState();
+  State<StreamingTextField> createState() => _StreamingTextFieldState();
 }
 
-class _FormsTextFieldState extends State<FormsTextField> {
+class _StreamingTextFieldState extends State<StreamingTextField> {
   late String value;
   late TextEditingController _controller;
 

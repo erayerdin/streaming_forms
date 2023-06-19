@@ -1,4 +1,4 @@
-name: forms_example
+name: streaming_forms_example
 description: Example app
 publish_to: 'none'
 
@@ -8,7 +8,7 @@ environment:
   sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
-  forms:
+  streaming_forms:
     path: ..
   flutter:
     sdk: flutter

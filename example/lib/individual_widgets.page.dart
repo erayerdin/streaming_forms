@@ -15,7 +15,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:forms/forms.dart';
+import 'package:streaming_forms/streaming_forms.dart';
 
 class IndividualWidgetsPage extends StatelessWidget {
   const IndividualWidgetsPage({super.key});
@@ -53,7 +53,7 @@ class IndividualWidgetsPage extends StatelessWidget {
 }
 
 //-------------//
-// FormsSwitch //
+// StreamingSwitch //
 //-------------//
 
 class _SwitchSection extends StatefulWidget {
@@ -82,12 +82,12 @@ class _SwitchSectionState extends State<_SwitchSection> {
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Text(
-            'FormsSwitch',
+            'StreamingSwitch',
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
         ),
-        FormsSwitch(
+        StreamingSwitch(
           controller: _controller,
           // initialValue: false,
         ),
@@ -114,7 +114,7 @@ class _SwitchSectionState extends State<_SwitchSection> {
 }
 
 //------------------//
-// Forms Text Field //
+// Streaming Text Field //
 //------------------//
 
 class _TextFieldSection extends StatefulWidget {
@@ -143,12 +143,12 @@ class _TextFieldSectionState extends State<_TextFieldSection> {
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
           child: Text(
-            'FormsTextField',
+            'StreamingTextField',
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
         ),
-        FormsTextField(
+        StreamingTextField(
           controller: _controller,
           // initialValue: 'foo',
         ),

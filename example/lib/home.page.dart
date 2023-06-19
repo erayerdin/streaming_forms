@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Examples'),
+        elevation: 4,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

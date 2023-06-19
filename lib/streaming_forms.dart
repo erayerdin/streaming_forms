@@ -13,8 +13,8 @@
 // limitations under the License.
 
 ///
-library forms;
+library streaming_forms;
 
-export 'src/forms.dart';
+export 'src/streaming_forms.dart';
 export 'src/switch.dart';
 export 'src/text_field.dart';
