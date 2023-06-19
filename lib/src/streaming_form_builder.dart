@@ -22,11 +22,12 @@ import 'package:flutter/material.dart';
 class StreamingFormBuilder extends StatefulWidget {
   /// {@macro streamingformbuilder}
   const StreamingFormBuilder({
-    required StreamingFormBuilderFn builder,
+    // ignore: library_private_types_in_public_api
+    required _StreamingFormBuilderFn builder,
     super.key,
   }) : _builder = builder;
 
-  final StreamingFormBuilderFn _builder;
+  final _StreamingFormBuilderFn _builder;
 
   @override
   State<StreamingFormBuilder> createState() => _StreamingFormBuilderState();
@@ -71,7 +72,7 @@ class _StreamingFormBuilderState extends State<StreamingFormBuilder> {
   }
 }
 
-typedef StreamingFormBuilderFn = Widget Function(
+typedef _StreamingFormBuilderFn = Widget Function(
   BuildContext context,
   StreamController<Map<String, dynamic>> controller,
   _FieldFactory fieldFactory,
