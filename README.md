@@ -5,6 +5,8 @@
 
 A form package providing Dart streams.
 
+Check out [this demo](https://erayerdin.github.io/forms/) to see it in action.
+
 ## Installation 💻
 
 **❗ In order to start using Forms you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
