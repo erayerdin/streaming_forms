@@ -12,26 +12,42 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:streaming_forms/streaming_forms.dart';
 
-class LightsPage extends StatefulWidget {
-  const LightsPage({super.key});
+class LightsPage extends StatelessWidget {
+  const LightsPage({required this.lightController, super.key});
 
-  @override
-  State<LightsPage> createState() => _LightsPageState();
-}
+  final StreamController<bool> lightController;
 
-class _LightsPageState extends State<LightsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lights Page'),
-        elevation: 4,
-      ),
-      body: const Center(
-        child: Text('lights page'),
-      ),
+    return StreamBuilder(
+      stream: lightController.stream,
+      builder: (context, snapshot) {
+        final isLight = snapshot.data ?? true;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Lights Page'),
+            elevation: 4,
+          ),
+          body: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(isLight ? 'Lights turned on' : 'Lights turned off'),
+                StreamingSwitch(
+                  controller: lightController,
+                  initialValue: isLight,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
