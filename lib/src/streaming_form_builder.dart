@@ -16,7 +16,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+/// {@template streamingformbuilder}
+/// A wrapper widget that helps you manage multiple streaming form elements.
+/// {@endtemplate}
 class StreamingFormBuilder extends StatefulWidget {
+  /// {@macro streamingformbuilder}
   const StreamingFormBuilder({required this.builder, super.key});
 
   final StreamingFormBuilderFn builder;
