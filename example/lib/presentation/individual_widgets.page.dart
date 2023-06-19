@@ -32,8 +32,8 @@ class IndividualWidgetsPage extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           crossAxisCount: constraints.maxWidth ~/ 300,
           children: [
-            _buildSection(context, child: _SwitchSection()),
-            _buildSection(context, child: _TextFieldSection()),
+            _buildSection(context, child: const _SwitchSection()),
+            _buildSection(context, child: const _TextFieldSection()),
           ],
         );
       }),
@@ -57,9 +57,7 @@ class IndividualWidgetsPage extends StatelessWidget {
 //-------------//
 
 class _SwitchSection extends StatefulWidget {
-  _SwitchSection();
-
-  final StreamController<bool> _controller = StreamController();
+  const _SwitchSection();
 
   @override
   State<_SwitchSection> createState() => _SwitchSectionState();
@@ -118,9 +116,7 @@ class _SwitchSectionState extends State<_SwitchSection> {
 //------------------//
 
 class _TextFieldSection extends StatefulWidget {
-  _TextFieldSection();
-
-  final StreamController<String> _controller = StreamController();
+  const _TextFieldSection();
 
   @override
   State<_TextFieldSection> createState() => _TextFieldSectionState();
