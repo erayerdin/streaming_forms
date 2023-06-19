@@ -34,7 +34,7 @@ class StreamingFormBuilder extends StatefulWidget {
 
 class _StreamingFormBuilderState extends State<StreamingFormBuilder> {
   final StreamController<Map<String, dynamic>> controller = StreamController();
-  final FieldFactory fieldFactory = FieldFactory();
+  final _FieldFactory fieldFactory = _FieldFactory();
 
   final Map<String, dynamic> previousValue = {};
   final List<StreamSubscription> subs = [];
@@ -74,11 +74,11 @@ class _StreamingFormBuilderState extends State<StreamingFormBuilder> {
 typedef StreamingFormBuilderFn = Widget Function(
   BuildContext context,
   StreamController<Map<String, dynamic>> controller,
-  FieldFactory fieldFactory,
+  _FieldFactory fieldFactory,
 );
 
-class FieldFactory {
-  FieldFactory();
+class _FieldFactory {
+  _FieldFactory();
 
   final Map<String, StreamController> fieldControllers = {};
 
