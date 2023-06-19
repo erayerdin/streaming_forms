@@ -43,6 +43,13 @@ class HomePage extends StatelessWidget {
                 },
                 child: const Text('Lights Page'),
               ),
+              const SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: () async {
+                  await Navigator.of(context).pushNamed('/form');
+                },
+                child: const Text('Form Page'),
+              ),
             ],
           ),
         ),
