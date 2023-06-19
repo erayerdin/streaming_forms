@@ -2,7 +2,6 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-@Skip('Stays as example')
 void main() {
   group('Streaming', () {
     test('can be instantiated', () {
