@@ -34,7 +34,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: "Building for web"
         working-directory: ./example
-        run: flutter build web --release --verbose --base-href "/forms/"
+        run: flutter build web --release --verbose --base-href "/streaming_forms/"
       - name: "Uploading artifact"
         uses: actions/upload-pages-artifact@v1
         with:

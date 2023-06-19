@@ -20,11 +20,11 @@ import 'package:flutter/material.dart';
 /// {@template formsswitch}
 /// A switch with streams.
 /// {@endtemplate}
-class FormsSwitch extends StatefulWidget {
+class StreamingSwitch extends StatefulWidget {
   /// {@macro formsswitch}
-  const FormsSwitch({
+  const StreamingSwitch({
     //-------------------//
-    // Forms Constructor //
+    // Streaming Constructor //
     //-------------------//
     required this.controller,
     this.initialValue = false,
@@ -57,7 +57,7 @@ class FormsSwitch extends StatefulWidget {
   });
 
   //------------------//
-  // Forms Properties //
+  // Streaming Properties //
   //------------------//
   final StreamController<bool> controller;
   final bool initialValue;
@@ -89,10 +89,10 @@ class FormsSwitch extends StatefulWidget {
   final bool autofocus;
 
   @override
-  State<FormsSwitch> createState() => _FormsSwitchState();
+  State<StreamingSwitch> createState() => _StreamingSwitchState();
 }
 
-class _FormsSwitchState extends State<FormsSwitch> {
+class _StreamingSwitchState extends State<StreamingSwitch> {
   late bool value;
 
   @override

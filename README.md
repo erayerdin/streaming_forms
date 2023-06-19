@@ -1,11 +1,11 @@
-# Forms
+# Streaming Forms
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: Apache License 2.0][license_badge]][license_link]
 
 A form package providing Dart streams.
 
-Check out [this demo](https://erayerdin.github.io/forms/) to see it in action.
+Check out [this demo](https://erayerdin.github.io/streaming_forms/) to see it in action.
 
 ## Rationale
 
@@ -21,7 +21,7 @@ Not only that, I've also tried to [implement it myself](https://github.com/flutt
 
 At the same time, I was looking for a 3rd-party solution that works well with streams, but there wasn't any good existing solution out there. For example, there's [flutter_form_bloc](https://pub.dev/packages/flutter_form_bloc), but it messes with raw material design that Flutter provides, which breaks visual consistency.
 
-That's why I have created `forms`. A Flutter form package that specifically plays well with streams, so that you can listen to events asynchronously.
+That's why I have created `streaming_forms`. A Flutter form package that specifically plays well with streams, so that you can listen to events asynchronously.
 
 ## Where It is and Where It's Heading
 
@@ -32,13 +32,13 @@ Currently, the package isn't even published to pub.dev. It's even before its inf
 
 ## Installation 💻
 
-**❗ In order to start using Forms you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
+**❗ In order to start using Streaming you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
 
-Add `forms` to your `pubspec.yaml`:
+Add `streaming_forms` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  forms:
+  streaming_forms:
 ```
 
 Install it:

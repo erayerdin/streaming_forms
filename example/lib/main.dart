@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:forms_example/home.page.dart';
-import 'package:forms_example/individual_widgets.page.dart';
+import 'package:streaming_forms_example/home.page.dart';
+import 'package:streaming_forms_example/individual_widgets.page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Forms Demo',
+      title: 'Streaming Forms Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

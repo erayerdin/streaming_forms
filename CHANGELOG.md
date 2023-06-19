@@ -9,5 +9,5 @@ and this project adheres to [Semantic Versioning].
 
 ### Added
 
-- `FormsSwitch` widget
-- `FormsTextField` widget
+- `StreamingSwitch` widget
+- `StreamingTextField` widget

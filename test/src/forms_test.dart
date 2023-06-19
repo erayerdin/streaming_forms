@@ -4,9 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 @Skip('Stays as example')
 void main() {
-  group('Forms', () {
+  group('Streaming', () {
     test('can be instantiated', () {
-      // expect(Forms(), isNotNull);
+      // expect(Streaming(), isNotNull);
     });
   });
 }
