@@ -1,7 +1,19 @@
 name: forms
-description: A Very Good Project created by Very Good CLI.
-version: 0.1.0+1
-publish_to: none
+description: A form package providing Dart streams.
+version: 0.1.0-alpha.1
+homepage: https://github.com/erayerdin/forms
+repository: https://github.com/erayerdin/forms
+issue_tracker: https://github.com/erayerdin/forms/issues
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+topics:
+  - widgets
+  - ui
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -14,5 +26,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mocktail: ^0.3.0
   very_good_analysis: ^5.0.0
