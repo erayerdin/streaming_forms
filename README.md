@@ -5,7 +5,7 @@
 
 A form package providing Dart streams.
 
-Check out [this demo](https://erayerdin.github.io/streaming_forms/) to see it in action.
+Check out [this demo](https://erayerdin.github.io/streaming_forms/) to see it in action. Refer to the [wiki](https://github.com/erayerdin/streaming_forms/wiki) to learn more or check out [examples](examples/) directory to see code samples.
 
 ## Rationale
 
@@ -25,14 +25,16 @@ That's why I have created `streaming_forms`. A Flutter form package that specifi
 
 ## Where It is and Where It's Heading
 
-Currently, the package isn't even published to pub.dev. It's even before its infancy. There will be some design decisions on the API. The current goals are these:
+Currently, the package is in its alpha phase. There will be some design decisions on the API. The current goals are these:
 
  - Work with asynchronous events provided by streams instead of event handler callbacks so that the devs can use it with their state management solution
  - Add upon, but not change, the built-in form solutions of Flutter so that the users familiar with it can migrate easily or create forms without extra required knowledge
+ - Add a built-in validation logic
+ - Work with Bloc
 
 ## Installation 💻
 
-**❗ In order to start using Streaming you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
+**❗ In order to start using this package you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
 
 Add `streaming_forms` to your `pubspec.yaml`:
 
