@@ -25,9 +25,9 @@ import 'package:flutter/material.dart';
 class StreamingSwitch extends StatefulWidget {
   /// {@macro formsswitch}
   const StreamingSwitch({
-    //-------------------//
+    //-----------------------//
     // Streaming Constructor //
-    //-------------------//
+    //-----------------------//
     required this.controller,
     this.initialValue = false,
     //---------------------//
