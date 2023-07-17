@@ -58,9 +58,9 @@ class StreamingSwitch extends StatefulWidget {
     super.key,
   });
 
-  //------------------//
+  //----------------------//
   // Streaming Properties //
-  //------------------//
+  //----------------------//
   /// StreamController to push the change events to.
   final StreamController<bool> controller;
 

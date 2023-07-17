@@ -102,9 +102,9 @@ class StreamingTextField extends StatefulWidget {
     super.key,
   });
 
-  //------------------//
+  //----------------------//
   // Streaming Properties //
-  //------------------//
+  //----------------------//
   /// StreamController to push the change events to.
   final StreamController<String> controller;
 
