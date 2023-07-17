@@ -28,9 +28,9 @@ import 'package:flutter/services.dart';
 class StreamingTextField extends StatefulWidget {
   /// {@macro formstextfield}
   const StreamingTextField({
-    //-------------------//
+    //-----------------------//
     // Streaming Constructor //
-    //-------------------//
+    //-----------------------//
     required this.controller,
     this.initialValue = '',
     //---------------------//
