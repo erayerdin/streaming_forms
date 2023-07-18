@@ -12,10 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-///
-library streaming_forms;
+class FormResult<T> {
+  FormResult._(this.value, this.message);
 
-export 'src/form_elements/switch.dart';
-export 'src/form_elements/text_field.dart';
-export 'src/form_result.dart';
-export 'src/streaming_form_builder.dart';
+  factory FormResult.valid(T value) {
+    return FormResult._(value, null);
+  }
+
+  factory FormResult.invalid(String message) {
+    return FormResult._(null, message);
+  }
+
+  final T? value;
+  final String? message;
+
+  bool get isValid => value != null;
+
+  @override
+  String toString() =>
+      isValid ? 'FormResult.valid($value)' : 'FormResult.invalid($message)';
+}
