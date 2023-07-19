@@ -123,7 +123,7 @@ class _TextFieldSection extends StatefulWidget {
 }
 
 class _TextFieldSectionState extends State<_TextFieldSection> {
-  final StreamController<String> _controller = StreamController();
+  final StreamController<FormResult<String>> _controller = StreamController();
 
   @override
   void dispose() {

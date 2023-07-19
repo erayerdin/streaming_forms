@@ -21,6 +21,7 @@ import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:streaming_forms/src/form_result.dart';
 
 /// {@template formstextfield}
 /// A text field with streams.
@@ -106,7 +107,7 @@ class StreamingTextField extends StatefulWidget {
   // Streaming Properties //
   //----------------------//
   /// StreamController to push the change events to.
-  final StreamController<String> controller;
+  final StreamController<FormResult<String>> controller;
 
   /// Initial value of the widget.
   final String initialValue;
@@ -188,7 +189,7 @@ class _StreamingTextFieldState extends State<StreamingTextField> {
   void initState() {
     value = widget.initialValue;
     _controller = TextEditingController(text: value);
-    widget.controller.add(value);
+    widget.controller.add(FormResult.valid(value));
     super.initState();
   }
 
@@ -263,7 +264,7 @@ class _StreamingTextFieldState extends State<StreamingTextField> {
       magnifierConfiguration: widget.magnifierConfiguration,
       controller: _controller,
       onChanged: (val) {
-        widget.controller.add(val);
+        widget.controller.add(FormResult.valid(val));
         setState(() {
           value = val;
         });
