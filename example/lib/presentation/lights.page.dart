@@ -20,14 +20,16 @@ import 'package:streaming_forms/streaming_forms.dart';
 class LightsPage extends StatelessWidget {
   const LightsPage({required this.lightController, super.key});
 
-  final StreamController<bool> lightController;
+  final StreamController<FormResult<bool>> lightController;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: lightController.stream,
       builder: (context, snapshot) {
-        final isLight = snapshot.data ?? true;
+        final formResult = snapshot.data;
+        final isValid = formResult?.isValid ?? false;
+        final isLight = isValid ? formResult!.value! : true;
 
         return Scaffold(
           appBar: AppBar(

@@ -64,7 +64,7 @@ class _SwitchSection extends StatefulWidget {
 }
 
 class _SwitchSectionState extends State<_SwitchSection> {
-  final StreamController<bool> _controller = StreamController();
+  final StreamController<FormResult<bool>> _controller = StreamController();
 
   @override
   void dispose() {

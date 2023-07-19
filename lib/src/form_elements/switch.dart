@@ -18,6 +18,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:streaming_forms/streaming_forms.dart';
 
 /// {@template formsswitch}
 /// A switch with streams.
@@ -62,7 +63,7 @@ class StreamingSwitch extends StatefulWidget {
   // Streaming Properties //
   //----------------------//
   /// StreamController to push the change events to.
-  final StreamController<bool> controller;
+  final StreamController<FormResult<bool>> controller;
 
   /// Initial value of the widget.
   final bool initialValue;
@@ -103,7 +104,7 @@ class _StreamingSwitchState extends State<StreamingSwitch> {
   @override
   void initState() {
     value = widget.initialValue;
-    widget.controller.add(value);
+    widget.controller.add(FormResult.valid(value));
     super.initState();
   }
 
@@ -134,7 +135,7 @@ class _StreamingSwitchState extends State<StreamingSwitch> {
       autofocus: widget.autofocus,
       value: value,
       onChanged: (val) {
-        widget.controller.add(val);
+        widget.controller.add(FormResult.valid(val));
         setState(() {
           value = val;
         });

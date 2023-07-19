@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:streaming_forms/streaming_forms.dart';
 import 'package:streaming_forms_example/presentation/form.page.dart';
 import 'package:streaming_forms_example/presentation/home.page.dart';
 import 'package:streaming_forms_example/presentation/individual_widgets.page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final StreamController<bool> _lightSwitchController =
+  final StreamController<FormResult<bool>> _lightSwitchController =
       StreamController.broadcast();
 
   @override
@@ -31,7 +32,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return StreamBuilder(
       builder: (context, snapshot) {
-        final isLight = snapshot.data ?? true;
+        final formResult = snapshot.data;
+        final isValid = formResult?.isValid ?? false;
+        final isLight = isValid ? formResult!.value! : true;
 
         return MaterialApp(
           title: 'Streaming Forms Demo',
