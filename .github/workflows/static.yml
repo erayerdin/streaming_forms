@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checking out"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: "Setting up Flutter SDK"
         uses: subosito/flutter-action@v2
       - name: "Setting up Pages"
