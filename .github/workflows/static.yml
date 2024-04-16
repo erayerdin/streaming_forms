@@ -36,7 +36,7 @@ jobs:
         working-directory: ./example
         run: flutter build web --release --verbose --base-href "/streaming_forms/"
       - name: "Uploading artifact"
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: './example/build/web/'
       - name: "Deploying to GitHub Pages"
